@@ -19,6 +19,9 @@ import com.arthenica.mobileffmpeg.Config;
 import com.arthenica.mobileffmpeg.FFmpeg;
 import com.opencsv.CSVReader;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -44,8 +47,8 @@ public class TextToSign extends AppCompatActivity implements TextPredictionView 
     private String[] poseids = new String[30];
 
     private String[] files = new String[30];
-    int countVideo;
-    private String[]  fileline;
+    //    int countVideo = Variables.getCount();
+//    private String[]  fileline = new String[countVideo];
     private ArrayList<String> videoPath = new ArrayList<>();
 
     @Override
@@ -114,7 +117,7 @@ public class TextToSign extends AppCompatActivity implements TextPredictionView 
         {
             tokens[i] = st1.nextToken();
             poseids[i] = readCsv(tokens[i]);
-
+//            Log.v(Config.TAG,"Pose ids="+poseids[i]);
         }
 
         while(poseids[id] != null)
@@ -129,15 +132,14 @@ public class TextToSign extends AppCompatActivity implements TextPredictionView 
                 i++;
                 id++;
                 count++;
-//                Log.i(Config.TAG, "Count:"+count);
                 Variables.setCount(count);
             }
         }
-        Log.i(Config.TAG, "Count:"+Variables.getCount());
-        //startActivity(intent);
 
-        repeat_btn.setEnabled(true);
+//        Log.v(Config.TAG,"count="+Variables.getCount());
+        //startActivity(intent);
         showSignVideo();
+        repeat_btn.setEnabled(true);
     }
 
     public String readCsv(String token)
@@ -180,8 +182,9 @@ public class TextToSign extends AppCompatActivity implements TextPredictionView 
     }
 
     private void writeToFile(String[] data) {
+
         try {
-            FileWriter fw = new FileWriter("/storage/emulated/0/DCIM/join.txt");
+            FileWriter fw = new FileWriter("/storage/emulated/0/DCIM/join.txt",false);
             for(int i = 0; i< data.length; i++)
             {
                 fw.write(data[i]);
@@ -196,22 +199,24 @@ public class TextToSign extends AppCompatActivity implements TextPredictionView 
 
     private void showSignVideo(){
         ArrayList<String> filenames = Variables.getFilename();
-        countVideo = Variables.getCount();
-        fileline = new String[countVideo];
+        int countVideo = Variables.getCount();
+        String[]  fileline = new String[countVideo];
+
         for(int i = 0; i < filenames.size(); i++) {
             files[i] = filenames.get(i);
         }
 
-        for(int id = 0 ; id < countVideo; id++) {
+        for(int id = 0 ; id < count; id++) {
             videoPath.add("/storage/emulated/0/DCIM/" + files[id] + ".mp4");
             fileline[id] = "file "+videoPath.get(id);
+//            Log.v(Config.TAG,"filelines="+fileline[id]);
         }
-
+        videoPath.clear();
 
         writeToFile(fileline);
         String mergepath = "/storage/emulated/0/DCIM/merged.mp4";
 
-        int rc = FFmpeg.execute("-f concat -safe 0 -y -i /storage/emulated/0/DCIM/join.txt -c copy -filter:v "+mergepath);
+        int rc = FFmpeg.execute("-f concat -safe 0 -y -i /storage/emulated/0/DCIM/join.txt -c copy "+mergepath);
         if (rc == RETURN_CODE_SUCCESS) {
             Log.i(Config.TAG, "Command execution completed successfully.");
         } else if (rc == RETURN_CODE_CANCEL) {

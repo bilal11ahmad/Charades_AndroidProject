@@ -14,7 +14,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CharadesClient {
-    private static final String BASE_URL = "http://192.168.10.9:5000/";
+    private static final String BASE_URL = "http://192.168.1.13:5000/";
     //private static Retrofit retrofit;
     private static Retrofit.Builder builder=new Retrofit.Builder().baseUrl(BASE_URL)
             .client(provideOkHttp())
