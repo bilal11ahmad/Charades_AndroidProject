@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "565498815519",
+    "firebase_url": "https://charades-7422f.firebaseio.com",
+    "project_id": "charades-7422f",
+    "storage_bucket": "charades-7422f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:565498815519:android:b64967c821e12b70f4612a",
+        "android_client_info": {
+          "package_name": "fyp.com.charades"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "565498815519-i2aav1pdccbouo0r5u35o37iihggso0l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fyp.com.charades",
+            "certificate_hash": "4df5829e5d33100e0b62ab00da0ed94526061978"
+          }
+        },
+        {
+          "client_id": "565498815519-uqt67259ffpoh42tjip35189dv8dmrg6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwYYS8Q_H5XkTVXI7-7iA3m6pN1A-ADm4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "565498815519-uqt67259ffpoh42tjip35189dv8dmrg6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

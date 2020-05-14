@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    tools:context=".Views.Initials.MainActivity">
+
+    <ImageView
+        android:id="@+id/titlePicture"
+        android:layout_width="204dp"
+        android:layout_height="160dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@mipmap/ic_titlepic"
+        android:contentDescription="@string/todo" />
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/titlePicture"
+        android:layout_marginTop="-30sp"
+        android:text="@string/charades"
+        android:textSize="48sp" />
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="150sp"
+        android:layout_height="40sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/titleText"
+        android:layout_marginTop="100sp"
+        android:text="@string/login"
+        android:background="@color/colorBlue"
+        android:textColor="#FFFF" />
+
+    <Button
+        android:id="@+id/signupBtn"
+        android:layout_width="150sp"
+        android:layout_height="40sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/loginBtn"
+        android:layout_marginTop="25sp"
+        android:text="@string/sign_up"
+        android:background="@color/colorBlue"
+        android:textColor="#FFFF" />
+
+</RelativeLayout>

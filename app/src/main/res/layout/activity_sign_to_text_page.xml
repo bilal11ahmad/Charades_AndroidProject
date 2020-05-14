@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_dark_background"
+    tools:context=".Views.SignToText.SignToTextPage">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/record_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200sp"
+        android:clickable="true"
+        android:onClick="captureVideo"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@android:drawable/ic_menu_camera"
+        android:focusable="true" />
+
+    <Button
+        android:id="@+id/conversion_Btn"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:text="Convert to Text"
+        android:layout_below="@+id/record_Btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150sp"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="568dp"
+        android:background="@color/colorBlue"
+        android:textColor="#FFFF"/>
+
+    <Button
+        android:id="@+id/back_Btn"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:text="Back to Dashboard"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/conversion_Btn"
+        android:layout_marginTop="50sp"
+        tools:layout_editor_absoluteX="169dp"
+        tools:layout_editor_absoluteY="642dp"
+        android:background="@color/colorBlue"
+        android:textColor="#FFFF"/>
+
+</RelativeLayout>
